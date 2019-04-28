@@ -20,19 +20,23 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //inicializace integeru bez znaménka
             uint cislo = 0;
-            
+            //ošetření vstupu (nic není zadáno/zadána je nula)
             if (textBox1.TextLength == 0)
             {
                 MessageBox.Show("První pole nesmí zůstat nevyplněno!");
             }
+            //ošetření vstupu (pokud je zadáné více než nula znaků, provede es následující)
             if (textBox1.TextLength > 0)
             {
+                //funkce pro otypování zadaného řetězce na uint
+
                 try
                 {
                     cislo = Convert.ToUInt32(textBox1.Text);
                 }
+                //chytá neplatný vstup
                 catch (FormatException)
                 {
                     MessageBox.Show("Musíte zadat pouze čísla");
@@ -42,12 +46,13 @@ namespace WindowsFormsApp1
                     MessageBox.Show("Číslo je příliš velké");
                 }
             }
+            //ošetřuje to, že musí být zvolena alespoň jedna soustava, do které se má číslo převést
             if (!dvojkova.Checked && !sestkova.Checked && !osmickova.Checked && !sestnactkova.Checked)
             {
                 MessageBox.Show("Zvolte alespoň jednu soustavu, do které chcete číslo převést!");
             }
             
-
+            //ošetřuje možnost volby převodu do dané soustavy (ošetřeno je i opakované zadání - pokud daná soustava není zvolena, vymaže se její pole)
             if (dvojkova.Checked)
             {
                 string C = PrevodyCisel.Binary(cislo);
