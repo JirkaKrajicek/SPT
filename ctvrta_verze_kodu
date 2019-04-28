@@ -1,0 +1,137 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp16
+{
+    static class PrevodyCisel
+    {      
+
+        public static string Binary(ulong VstupBin)
+        {
+            int vstupBin = Convert.ToInt32(VstupBin);
+            int zbytekBin = 0;
+
+            List<int> bin = new List<int>();
+            while (vstupBin > 0)
+            {
+                zbytekBin = vstupBin % 2;
+                bin.Add(zbytekBin);
+                vstupBin /= 2;
+            }
+            int[] pole_List_Bin = bin.ToArray();
+            int[] pole_Bin_mirror = new int[pole_List_Bin.Length];
+            for (int i = 0, j = pole_List_Bin.Length - 1; i < pole_List_Bin.Length; i++, j--)
+            {
+                pole_Bin_mirror[j] = pole_List_Bin[i];
+            }
+            string output = string.Join("", pole_Bin_mirror);
+            return output;
+        }
+
+
+        public static string Hexal(ulong VstupHex)
+        {
+            int vstupHex = Convert.ToInt32(VstupHex);
+            int zbytekHex = 0;
+
+            List<int> hex = new List<int>();
+            while (vstupHex > 0)
+            {
+                zbytekHex = vstupHex % 6;
+                hex.Add(zbytekHex);
+                vstupHex /= 6;
+            }
+            int[] pole_List_Hex = hex.ToArray();
+            int[] pole_Hex_mirror = new int[pole_List_Hex.Length];
+            for (int i = 0, j = pole_List_Hex.Length - 1; i < pole_List_Hex.Length; i++, j--)
+            {
+                pole_Hex_mirror[j] = pole_List_Hex[i];
+            }
+
+            string output = string.Join("", pole_Hex_mirror);
+            return output;
+        }
+
+
+        public static string Octal(ulong VstupOsm)
+        {
+            int vstupOsm = Convert.ToInt32(VstupOsm);
+            int zbytekOsmi = 0;
+
+            List<int> osm = new List<int>();
+            while (vstupOsm > 0)
+            {
+                zbytekOsmi = vstupOsm % 8;
+                osm.Add(zbytekOsmi);
+                vstupOsm /= 8;
+            }
+            int[] pole_List_Osm = osm.ToArray();
+            int[] pole_Osm_mirror = new int[pole_List_Osm.Length];
+            for (int i = 0, j = pole_List_Osm.Length - 1; i < pole_List_Osm.Length; i++, j--)
+            {
+                pole_Osm_mirror[j] = pole_List_Osm[i];
+            }
+
+            string output = string.Join("", pole_Osm_mirror);
+            return output;
+        }
+
+
+        public static string HexaDecimal(ulong VstupHexDec)
+        {
+            int vstupHexDec = Convert.ToInt32(VstupHexDec);
+            int zbytekHexDec = 0;
+
+            List<char> hexdec = new List<char>();
+            while (vstupHexDec > 0)
+            {
+                zbytekHexDec = vstupHexDec % 16;
+
+                if (zbytekHexDec == 0) zbytekHexDec = (char)'0';
+                if (zbytekHexDec == 1) zbytekHexDec = (char)'1';
+                if (zbytekHexDec == 2) zbytekHexDec = (char)'2';
+                if (zbytekHexDec == 3) zbytekHexDec = (char)'3';
+                if (zbytekHexDec == 4) zbytekHexDec = (char)'4';
+                if (zbytekHexDec == 5) zbytekHexDec = (char)'5';
+                if (zbytekHexDec == 6) zbytekHexDec = (char)'6';
+                if (zbytekHexDec == 7) zbytekHexDec = (char)'7';
+                if (zbytekHexDec == 8) zbytekHexDec = (char)'8';
+                if (zbytekHexDec == 9) zbytekHexDec = (char)'9';
+                if (zbytekHexDec == 10) zbytekHexDec = (char)'A';
+                if (zbytekHexDec == 11) zbytekHexDec = (char)'B';
+                if (zbytekHexDec == 12) zbytekHexDec = (char)'C';
+                if (zbytekHexDec == 13) zbytekHexDec = (char)'D';
+                if (zbytekHexDec == 14) zbytekHexDec = (char)'E';
+                if (zbytekHexDec == 15) zbytekHexDec = (char)'F';
+
+                hexdec.Add((char)zbytekHexDec);
+                vstupHexDec /= 16;
+            }
+
+            char[] pole_List_HexDec = hexdec.ToArray();
+            char[] pole_HexDec_mirror = new char[pole_List_HexDec.Length];
+            for (int i = 0, j = pole_List_HexDec.Length - 1; i < pole_List_HexDec.Length; i++, j--)
+            {
+                pole_HexDec_mirror[j] = pole_List_HexDec[i];
+            }
+
+            string output = string.Join("",pole_HexDec_mirror);
+            return output;
+        }
+    }
+
+
+  
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+  
+
+        }
+    }
+}
